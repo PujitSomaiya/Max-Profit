@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Max-Profit</string>
+    <string name="enteramount">enterAmount</string>
+    <string name="calculate">calculate</string>
+    <string name="sell">Sell</string>
+    <string name="total_sell">Total Sell</string>
+    <string name="buy">Buy</string>
+    <string name="profit">Profit</string>
+    <string name="share">Share</string>
 </resources>
