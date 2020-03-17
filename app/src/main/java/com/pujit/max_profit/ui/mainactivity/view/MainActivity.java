@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 sells = 0.00;
                 for (int i = 0; i <= 14; i++) {
                     if (Double.parseDouble(edAmount.getText().toString()) >= buy[i]) {
-                        if (!(sell[i] - buy[i] < buy[i])) {
+                        if (!(sell[i] - buy[i] < 0.00)) {
                             enteredAmount = enteredAmount + buy[i];
                             if (Double.parseDouble(edAmount.getText().toString()) >= enteredAmount) {
                                 profitModel = new ProfitModel(share[i], buy[i], sell[i], sell[i] - buy[i]);
