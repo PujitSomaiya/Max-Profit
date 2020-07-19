@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding= DataBindingUtil.setContentView(this,R.layout.activity_main);
         initControls();
     }
-
+//gitconfig change
     private void initControls() {
         initListeners();
     }
