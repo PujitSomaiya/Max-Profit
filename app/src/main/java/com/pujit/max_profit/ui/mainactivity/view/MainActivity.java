@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     enterAmount=enterAmount-Double.parseDouble(dataModel.get(i).getBuy().toString());
                     profitModel = new ProfitModel(dataModel.get(i).getShareName(),dataModel.get(i).getBuy(),dataModel.get(i).getSell(),dataModel.get(i).getProfit());
                     invested = invested + dataModel.get(i).getBuy();
-                    profit = profit + dataModel.get(i).getProfit();
+                    profit = profit + (dataModel.get(i).getSell()-dataModel.get(i).getBuy());
                     sells = sells + dataModel.get(i).getSell();
                     profitModels.add(profitModel);
                 }
@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this,"please enter amount",Toast.LENGTH_LONG).show();
         }
         if (profitModel!=null){
+            binding.edAmount.setText("");
             binding.tvFinalInvested.setText(String.valueOf(invested));
             binding.tvFinalProfits.setText(String.valueOf(profit));
             binding.tvFinalSells.setText(String.valueOf(sells));

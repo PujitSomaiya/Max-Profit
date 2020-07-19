@@ -5,7 +5,7 @@
     <string name="sell">Sell</string>
     <string name="total_sell">Total Sell</string>
     <string name="buy">Buy</string>
-    <string name="profit">Profit</string>
+    <string name="profit">Profit( in % )</string>
     <string name="share">Share</string>
     <string name="this_is_default_share_list_reference_to_this_share_will_buy_automatically">This is Default Share List Reference to this share will be Buy Automatically</string>
 </resources>
