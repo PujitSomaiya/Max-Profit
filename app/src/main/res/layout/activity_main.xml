@@ -1,148 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.mainactivity.view.MainActivity">
+<layout>
 
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/edAmount"
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:singleLine="true"
-        android:hint="@string/enteramount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvShares"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:text="@string/share"
-        app:layout_constraintEnd_toStartOf="@id/tvBuys"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edAmount" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvBuys"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:text="@string/buy"
-        app:layout_constraintEnd_toStartOf="@id/tvSells"
-        app:layout_constraintStart_toEndOf="@id/tvShares"
-        app:layout_constraintTop_toBottomOf="@id/edAmount" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvSells"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:text="@string/sell"
-        app:layout_constraintEnd_toStartOf="@id/tvProfits"
-        app:layout_constraintStart_toEndOf="@id/tvBuys"
-        app:layout_constraintTop_toBottomOf="@id/edAmount" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvProfits"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:text="@string/profit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvSells"
-        app:layout_constraintTop_toBottomOf="@id/edAmount" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTransaction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvProfits"
-        tools:itemCount="2"
-        tools:listitem="@layout/activity_transaction_adapter" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp"
+            tools:context=".ui.mainactivity.view.MainActivity">
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCalculate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:text="@string/calculate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvTransaction" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTransaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProfits"
+                tools:itemCount="2"
+                tools:listitem="@layout/activity_transaction_adapter" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvFinalProfit"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:text="Total Invested"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tvFinalInvested"
-        app:layout_constraintTop_toBottomOf="@id/btnCalculate" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSharesDefault"
+                tools:itemCount="2"
+                tools:listitem="@layout/activity_transaction_adapter" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvFinalInvested"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:maxLength="6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvFinalProfit"
-        app:layout_constraintTop_toBottomOf="@id/btnCalculate" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/calculate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvTransaction" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvFinalInvesteds"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:text="Total Profit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvFinalSell" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:hint="@string/enteramount"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvFinalProfits"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:maxLength="6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvFinalInvesteds"
-        app:layout_constraintTop_toBottomOf="@id/tvFinalSell" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvShares"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/share"
+                app:layout_constraintEnd_toStartOf="@id/tvBuys"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edAmount" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvFinalSell"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:text="@string/total_sell"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvFinalProfit" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBuys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/buy"
+                app:layout_constraintEnd_toStartOf="@id/tvSells"
+                app:layout_constraintStart_toEndOf="@id/tvShares"
+                app:layout_constraintTop_toBottomOf="@id/edAmount" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvFinalSells"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:maxLength="6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvFinalSell"
-        app:layout_constraintTop_toBottomOf="@id/tvFinalProfit" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSells"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/sell"
+                app:layout_constraintEnd_toStartOf="@id/tvProfits"
+                app:layout_constraintStart_toEndOf="@id/tvBuys"
+                app:layout_constraintTop_toBottomOf="@id/edAmount" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvProfits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/profit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvSells"
+                app:layout_constraintTop_toBottomOf="@id/edAmount" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFinalProfit"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="Total Invested"
+                app:layout_constraintEnd_toStartOf="@id/tvFinalInvested"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnCalculate" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFinalInvested"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:maxLength="6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvFinalProfit"
+                app:layout_constraintTop_toBottomOf="@id/btnCalculate" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFinalInvesteds"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Total Profit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFinalSell" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFinalProfits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:maxLength="6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvFinalInvesteds"
+                app:layout_constraintTop_toBottomOf="@id/tvFinalSell" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFinalSell"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/total_sell"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFinalProfit" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFinalSells"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:maxLength="6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvFinalSell"
+                app:layout_constraintTop_toBottomOf="@id/tvFinalProfit" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@android:color/holo_red_dark"
+                android:text="@string/this_is_default_share_list_reference_to_this_share_will_buy_automatically"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFinalInvesteds" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSharesDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/share"
+                app:layout_constraintEnd_toStartOf="@id/tvBuysDefault"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvInformation" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBuysDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/buy"
+                app:layout_constraintEnd_toStartOf="@id/tvSellsDefault"
+                app:layout_constraintStart_toEndOf="@id/tvSharesDefault"
+                app:layout_constraintTop_toBottomOf="@id/tvInformation" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSellsDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/sell"
+                app:layout_constraintEnd_toStartOf="@id/tvProfitsDefault"
+                app:layout_constraintStart_toEndOf="@id/tvBuysDefault"
+                app:layout_constraintTop_toBottomOf="@id/tvInformation" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvProfitsDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/profit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvSellsDefault"
+                app:layout_constraintTop_toBottomOf="@id/tvInformation" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
