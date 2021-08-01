@@ -119,12 +119,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             double enterAmount=(Double.parseDouble(Objects.requireNonNull(binding.edAmount.getText()).toString()));
             for (int i=0;i<dataModel.size();i++){
                 if (enterAmount >= (Double.parseDouble(dataModel.get(i).getBuy().toString()))){
-                    enterAmount=enterAmount-Double.parseDouble(dataModel.get(i).getBuy().toString());
-                    profitModel = new ProfitModel(dataModel.get(i).getShareName(),dataModel.get(i).getBuy(),dataModel.get(i).getSell(),dataModel.get(i).getProfit());
-                    invested = invested + dataModel.get(i).getBuy();
-                    profit = profit + (dataModel.get(i).getSell()-dataModel.get(i).getBuy());
-                    sells = sells + dataModel.get(i).getSell();
-                    profitModels.add(profitModel);
+                    if(dataModel.get(i).getProfit()>0){
+                        enterAmount=enterAmount-Double.parseDouble(dataModel.get(i).getBuy().toString());
+                        profitModel = new ProfitModel(dataModel.get(i).getShareName(),dataModel.get(i).getBuy(),dataModel.get(i).getSell(),dataModel.get(i).getProfit());
+                        invested = invested + dataModel.get(i).getBuy();
+                        profit = profit + (dataModel.get(i).getSell()-dataModel.get(i).getBuy());
+                        sells = sells + dataModel.get(i).getSell();
+                        profitModels.add(profitModel);
+                    }
+
                 }
             }
         }else {
